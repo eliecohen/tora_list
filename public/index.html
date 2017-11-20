@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Tora</title>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-sanitize.min.js"></script>
+    <script src="js/app.js"></script>
+
+</head>
+
+<body ng-app = "mainApp" ng-controller = "myController" dir="rtl">
+
+<h3>{{parasha}} - {{perek}}</h3>
+
+<div ng-repeat="item in comments track by $index">
+
+    <!-- ############## Passouk ################### -->
+
+    <div>
+        <span>[{{digit_heb[item.p]}}]</span>
+            <span ng-repeat="w in source[item.p-1] track by $index">
+            <span style="color:red"   ng-show="$index>=item.w-1 && $index<(item.w+item.offset-1)">{{w}}</span>
+            <span style="color:black" ng-hide="$index>=item.w-1 && $index<(item.w+item.offset-1)">{{w}}</span>
+        </span>
+
+        <!-- ############## type ################### -->
+
+        <!--<br/>-->
+        <!--<span>[word:{{item.w}}]</span><br/>-->
+        <!--<span>[offset:{{item.offset}}]</span>-->
+    </div>
+
+
+
+    <!-- ############## question ################### -->
+
+    <span style="color:grey" ng-show="item.question">
+        {{item.question}}<br/>
+        <!--<p ng-bind-html="item.question"></p>-->
+    </span>
+
+    <span style="color:darkblue">
+        <!--{{item.content}}-->
+        <div ng-bind-html="item.content"></div>
+
+    </span>
+    <br/>
+    <!--<span style="color:darkgreen">{{item.html}}</span>-->
+    <br/>
+
+</div>
+
+<!--
+<pre>{{source | json}}</pre>
+<pre>{{response | json}}</pre>
+-->
+
+
+</body>
+</html>

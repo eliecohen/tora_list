@@ -1,0 +1,22 @@
+{
+  "name": "tora_list",
+  "description": "",
+  "main": "",
+  "authors": [
+    "e.cohen <e.cohen>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-timeline": "^1.7.0",
+    "bootstrap": "^3.3.7"
+  }
+}
